@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>全景展示</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="/static/css/back.css">
+</head>
+<body>
+<header class="w-header">
+  <h1>管理后台-列表</h1>
+  <a class="w-header-btn" href="/">返回</a>
+</header>
+<section class="w-content">
+  <div class="w-crop" id="w_crop_box">
+    <div class="w-backdrop-img" id="w_bg_img">
+      <img>
+    </div>
+    <div class="w-crop-window" id="w_w_img">
+      <img>
+    </div>
+
+    <div class="w-crop-btn" >
+      <a id="w-crop-btn">取消</a>
+      <a id="w-crop-btn1">确定</a>
+    </div>
+  </div>
+</section>
+<script src="/static/js/lib/jquery.min.js"></script>
+<script src="/static/js/lib/hammer.min.js"></script>
+<script src="/static/js/common/device.js"></script>
+<script src="/static/js/back/crop.js"></script>
+<script>
+ var param={
+    "seller_id":"",
+    "list_type":"",
+    "page_num":"",
+    "page_size":"",
+    "item_id": "",
+    "item_ids": [],
+    "item_title": "",
+    "order_ids":[],
+    "buyer_id":"",
+    "buyer_telephone":"",
+    "buyer_name":"",
+    "time_search":{
+      "add_time_from":"",
+      "add_time_to":"",
+      "update_time_from":"",
+      "update_time_to":"",
+      "pay_time_from":"",
+      "pay_time_to":""
+    },
+    "status_list":[],
+    "refund_status_list":[],
+    "total_price_from":"",
+    "total_price_to":"",
+    "express_no":"",
+    "f_seller_id":"",
+    "f_seller_name":"",
+    "f_seller_telephone":"",
+    "g_seller_id":"",
+    "g_seller_name": "",
+    "g_seller_telephone": "",
+    "refund_nos":[],
+    "order_source_in":[],
+    "order_sort_list":[
+      {
+        "sort_key":"",
+        "sort_type":""
+      }
+    ],
+    "request_from": ""
+  };
+
+  console.log('?param=' + JSON.stringify(param));
+</script>
+</body>
+</html>

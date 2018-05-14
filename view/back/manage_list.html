@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>全景展示</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/back.list.css">
+</head>
+<body class="w-gradient-l">
+<header class="w-header">
+  <h1>管理后台-列表</h1>
+  <a class="w-header-btn" href="/">返回</a>
+  <a class="w-header-btn w-right" href="/back/manage/edit">添加</a>
+</header>
+<section class="w-content">
+  <% controller.list.data.forEach(function(item){ %>
+    <div class="w-row">
+      <div class="w-num"><%= item.id %></div>
+      <div class="w-img">
+        <img src="<%= item.image_arr[0] %>">
+      </div>
+      <div class="w-func">
+        <a href="/fore?id=<%= item.id %>">查看</a>
+        <a href="/back/manage/edit?id=<%= item.id %>">修改</a>
+        <a class="w-del" data-id="<%= item.id %>">删除</a>
+      </div>
+    </div>
+  <% }) %>
+</section>
+<script src="/static/js/lib/jquery.min.js"></script>
+<script>
+  (function($){
+    $('.w-content').on('touchstart mousedown', '.w-del', function (_event) {
+      var _id = $(_event.target).attr('data-id');
+      if(_id > 0 && window.confirm('是否删除?')){
+        $.ajax({
+          method: "GET",
+          dataType: 'JSON',
+          url: "/back/images/delete",
+          data: {
+            id: _id
+          }
+        }).then(function (res) {
+          if(Number(res.data) === 1){
+            alert("修改成功");
+            window.location.reload();
+          }else{
+            console.log("修改失败!!");
+          }
+        }, function () {
+          console.log("服务器错误!!");
+        });
+      }
+    } );
+  })(window.jQuery);
+</script>
+</body>
+</html>

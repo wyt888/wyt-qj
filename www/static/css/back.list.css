@@ -1,0 +1,33 @@
+/* 列表页样式 */
+.w-row{
+    height: 80px;
+    margin-top: 10px;
+    line-height: 80px;
+    color: #ffffff;
+    display: -webkit-flex;
+    display: flex;
+}
+.w-row .w-num{
+    width: 20%;
+    text-align: center;
+}
+
+.w-row .w-img{
+    width: 40%;
+    min-width: 80px;
+}
+
+.w-row .w-func{
+    width:40%;
+    min-width: 80px;
+}
+
+.w-row .w-func a{
+    color: #ffffff;
+}
+
+.w-row img{
+    height: 80px;
+    width: 80px;
+    border-radius: 2px;
+}

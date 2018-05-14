@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <title>360°</title>
+  <link rel="stylesheet" href="/static/css/fore.css">
+</head>
+<body>
+<section>
+  <div class="p-window" id="p_window"></div>
+</section>
+<!--<section class="p-layer" >-->
+  <!--<div class="p-pics" id="pics"></div>-->
+  <!--<div class="p-slider" id="slider">-->
+    <!--<div class="p-bar" id="bar"></div>-->
+  <!--</div>-->
+<!--</section>-->
+<!--<section>-->
+  <!--<p><span>手机坐标 - gamma:</span> <span id="gamma"></span></p>-->
+  <!--<p><span>手机坐标 - alpha:</span> <span id="alpha"></span></p>-->
+  <!--<p><span>手机坐标 - beta:</span> <span id="beta"></span></p>-->
+  <!--<p><span>change:</span> <span id="gamma1"></span></p>-->
+  <!--<p><span>改变次数:</span> <span id="times"></span></p>-->
+  <!--<p><span>结果:</span> <span id="ress"></span></p>-->
+<!--</section>-->
+<script src="/static/js/lib/jquery.min.js"></script>
+<script src="/static/js/lib/hammer.min.js"></script>
+<script src="/static/js/fore/main.js"></script>
+
+<script src="/static/js/common/device.js"></script>
+<script src="/static/js/fore/template.js"></script>
+<script src="/static/js/fore/event/slider.js"></script>
+
+<script src="/static/js/fore/event/ani.js"></script>
+<script src="/static/js/fore/event/mobile.js"></script>
+
+
+<script>
+  (function (WD, $){
+    $(function () {
+      var data = "<%= controller.arr %>";
+      WD.initFore({
+        images: data,
+        id: 'p_window'
+      });
+    });
+  })(window.WD, window.jQuery);
+
+</script>
+</body>
+</html>

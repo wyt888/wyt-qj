@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta content="telephone=no" name="format-detection" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <!--<meta name="msapplication-tap-highlight" content="no" />-->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/back.edit.css">
+  <link rel="stylesheet" href="/static/css/back.crop.css">
+</head>
+<body class="w-gradient-l">
+<header class="w-header">
+  <h1>图片管理后台</h1>
+  <a class="w-header-btn" href="<%= controller.back %>">返回</a>
+</header>
+<section class="w-content w-edit">
+
+  <section class="w-upload-area">
+
+    <div class="w-upload-type">
+      <a class="w-each-type w-cur" id="show_img">图片上传</a>
+      <a class="w-each-type" id="show_video">视频上传</a>
+    </div>
+
+    <div class="upload_area_con" id="upload_area_img">
+      <div class="w-upload-btn">
+        <input type="file" multiple id="file_img">
+        <p class="w-select-btn">点击选择图片</p>
+        <p class="w-desc"><span id="img_desc">请选择图片</span>(可以选择多张图片)</p>
+      </div>
+      <div class="w-upload-f">
+        <a class="w-btn w-btn-disable" id="upload_img">上传图片</a>
+      </div>
+    </div>
+
+    <div class="upload_area_con" id="upload_area_video" style="display: none;">
+      <div class="w-upload-btn">
+        <input type="file" id="file_video">
+        <p class="w-select-btn">点击选择视频</p>
+        <p class="w-desc"><span id="video_desc">请选择视频</span>(只能选择一个视频)</p>
+      </div>
+
+      <div class="w-upload-options">
+        <input type="text" value="" id="file_num" placeholder="图片数量,默认30张.">
+        <p class="w-desc">
+          <span>视频预计生成<em id="file_num_show">30</em>张图片,即每<em id="file_num_deg">12</em>deg一张图片</span>
+        </p>
+      </div>
+
+      <div class="w-upload-f">
+        <a class="w-btn w-btn-disable" id="upload_video">上传视频</a>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="w-img-list" id="list">
+
+
+    <!-- 测试样式 START -->
+    <!--<div class="w-img-each">-->
+      <!--<p class="w-img-window">-->
+        <!--<img src="/static/upload/small/HFj_yi5Y74MnKxfk_1500786680255_1.jpg">-->
+        <!--<a class="w-del-i">X</a>-->
+      <!--</p>-->
+    <!--</div>-->
+    <!--<div class="w-img-each">-->
+      <!--<p class="w-img-window">-->
+        <!--<img src="/static/upload/small/HFj_yi5Y74MnKxfk_1500786680255_1.jpg">-->
+        <!--<a class="w-del-i">X</a>-->
+      <!--</p>-->
+    <!--</div>-->
+    <!--<div class="w-img-each">-->
+      <!--<p class="w-img-window">-->
+        <!--<img src="/static/upload/small/HFj_yi5Y74MnKxfk_1500786680255_1.jpg">-->
+        <!--<a class="w-del-i">X</a>-->
+      <!--</p>-->
+    <!--</div>-->
+
+    <!--<div class="w-img-each">-->
+      <!--<p class="w-img-window">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg">-->
+        <!--<a class="w-del-i">X</a>-->
+      <!--</p>-->
+    <!--</div>-->
+    <!--<div class="w-img-each">-->
+      <!--<p class="w-img-window">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg">-->
+        <!--<a class="w-del-i">X</a>-->
+      <!--</p>-->
+    <!--</div>-->
+    <!--<div class="w-img-each">-->
+      <!--<p class="w-img-window">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg">-->
+        <!--<a class="w-del-i">X</a>-->
+      <!--</p>-->
+    <!--</div>-->
+    <!--<div class="w-img-each">-->
+      <!--<p class="w-img-window">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg">-->
+        <!--<a class="w-del-i">X</a>-->
+      <!--</p>-->
+    <!--</div>-->
+    <!--<div class="w-img-each">-->
+      <!--<p class="w-img-window">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg">-->
+        <!--<a class="w-del-i">X</a>-->
+      <!--</p>-->
+    <!--</div>-->
+    <!--<div class="w-img-each">-->
+      <!--<p class="w-img-window">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg">-->
+        <!--<a class="w-del-i">X</a>-->
+      <!--</p>-->
+    <!--</div>-->
+    <!-- 测试样式 START -->
+
+
+  </div>
+
+</section>
+<div class="w-footer">
+  <a class="w-footer-btn" id="myCrop">裁剪</a>
+  <a class="w-footer-btn" id="submit">保存</a>
+</div>
+<section id="sortBox" class="sort-area" style="display: none;"></section>
+<section id="cropBox" class="w-crop" style="display: none">
+<!--<section id="cropBox" class="w-crop">-->
+
+  <div class="w-crop-bg" id="w_crop_bg">
+    <img class="w-crop-img" id="w_crop_img" src="" >
+  </div>
+  <div class="w-crop-mask" id="w-top"></div>
+  <div class="w-crop-window" id="w-window"></div>
+  <div class="w-crop-mask" id="w-bottom"></div>
+
+  <!--<div class="w-crop-thumbnail">-->
+    <!--<div class="w-crop-thumbnail-list">-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+      <!--<div class="w-crop-thumbnail-each">-->
+        <!--<img src="/static/upload/video/HFj_yi5Y74MnKxfk_1500786680255_1.jpg" >-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <div class="w-crop-footer">
+    <a class="w-crop-cancel" id="crop_cancel">取消</a>
+    <a class="w-crop-confirm" id="crop_confirm">完成</a>
+  </div>
+</section>
+<script src="/static/js/lib/jquery.min.js"></script>
+<script src="/static/js/lib/hammer.min.js"></script>
+<script src="/static/js/back/main.js"></script>
+<script src="/static/js/back/crop.js"></script>
+<script src="/static/js/back/data.js"></script>
+<script src="/static/js/back/ajax.js"></script>
+<!--<script src="/static/js/back/sort.js"></script>-->
+<script>
+  (function(WD){
+    var _data='<%- controller.data %>';
+//    var _data='["/static/images/xj2.jpg", "/static/images/xj1.jpg", "/static/images/xj3.jpg"]';
+    WD.init(_data);
+  })(window.WD);
+</script>
+</body>
+</html>
